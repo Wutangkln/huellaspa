@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h2 class="mb-4">Editar Producto</h2>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="{{ form.nombre.id_for_label }}">Nombre:</label>
+        {{ form.nombre }}
+      </div>
+      <div class="form-group">
+        <label for="{{ form.descripcion.id_for_label }}">Descripción:</label>
+        {{ form.descripcion }}
+      </div>
+      <div class="form-group">
+        <label for="{{ form.precio.id_for_label }}">Precio:</label>
+        {{ form.precio }}
+      </div>
+      <div class="form-group">
+        <label for="{{ form.stock.id_for_label }}">Stock:</label>
+        {{ form.stock }}
+      </div>
+      <button type="submit" class="btn btn-success">Actualizar Producto</button>
+    </form>
+  </div>
+{% endblock %}

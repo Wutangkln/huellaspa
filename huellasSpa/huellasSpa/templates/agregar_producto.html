@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card shadow-lg">
+          <div class="card-header text-center bg-primary text-white">
+            <h2>Agregar Producto</h2>
+          </div>
+          <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="form-group">
+                <label for="{{ form.nombre.id_for_label }}" class="font-weight-bold">Nombre del Producto:</label>
+                {{ form.nombre }}
+              </div>
+              <div class="form-group">
+                <label for="{{ form.descripcion.id_for_label }}" class="font-weight-bold">Descripción:</label>
+                {{ form.descripcion }}
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="{{ form.precio.id_for_label }}" class="font-weight-bold">Precio:</label>
+                  {{ form.precio }}
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="{{ form.stock.id_for_label }}" class="font-weight-bold">Stock:</label>
+                  {{ form.stock }}
+                </div>
+              </div>
+              <button type="submit" class="btn btn-success btn-block">Guardar Producto</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
